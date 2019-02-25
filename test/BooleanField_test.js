@@ -51,6 +51,56 @@ describe("BooleanField", () => {
     expect(node.querySelector(".field label span").textContent).eql("foo");
   });
 
+  describe("HTML5 required attribute", () => {
+    it("should not render a required attribute for simple required fields", () => {
+      const { node } = createFormComponent({
+        schema: {
+          type: "object",
+          properties: {
+            foo: {
+              type: "boolean",
+            },
+          },
+          required: ["foo"],
+        },
+      });
+
+      expect(node.querySelector("input[type=checkbox]").required).eql(false);
+    });
+
+    it("should add a required attribute if the schema uses const with a true value", () => {
+      const { node } = createFormComponent({
+        schema: {
+          type: "object",
+          properties: {
+            foo: {
+              type: "boolean",
+              const: true,
+            },
+          },
+        },
+      });
+
+      expect(node.querySelector("input[type=checkbox]").required).eql(true);
+    });
+
+    it("should add a required attribute if the schema uses an enum with a single value of true", () => {
+      const { node } = createFormComponent({
+        schema: {
+          type: "object",
+          properties: {
+            foo: {
+              type: "boolean",
+              enum: [true],
+            },
+          },
+        },
+      });
+
+      expect(node.querySelector("input[type=checkbox]").required).eql(true);
+    });
+  });
+
   it("should render a single label", () => {
     const { node } = createFormComponent({
       schema: {

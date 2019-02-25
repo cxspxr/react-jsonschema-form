@@ -7,7 +7,6 @@ function CheckboxWidget(props) {
     schema,
     id,
     value,
-    required,
     disabled,
     readonly,
     label,
@@ -16,6 +15,14 @@ function CheckboxWidget(props) {
     onFocus,
     onChange,
   } = props;
+
+  // Because an unchecked checkbox will cause html5 validation to fail, only add
+  // the "required" attribute if the field value must be "true", due to the
+  // "const" or "enum" keywords
+  const required =
+    schema.const ||
+    (schema.enum && schema.enum.length === 1 && schema.enum[0] === true);
+
   return (
     <div className={`checkbox ${disabled || readonly ? "disabled" : ""}`}>
       {schema.description && (
