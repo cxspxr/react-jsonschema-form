@@ -87,6 +87,7 @@ function LabelInput(props) {
 
 function Help(props) {
   const { help } = props;
+
   if (!help) {
     // See #312: Ensure compatibility with old versions of React.
     return <div />;
@@ -94,6 +95,19 @@ function Help(props) {
   if (typeof help === "string") {
     return <p className="help-block">{help}</p>;
   }
+
+  if (typeof help === "object") {
+    const { key, ref, props } = help;
+
+    const HelpComponent = help.type;
+
+    return (
+      <div className="help-block">
+        <HelpComponent key={key} ref={ref} props={props} />
+      </div>
+    );
+  }
+
   return <div className="help-block">{help}</div>;
 }
 
