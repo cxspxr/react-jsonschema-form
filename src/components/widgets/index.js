@@ -1,5 +1,3 @@
-import AltDateWidget from "./AltDateWidget";
-import AltDateTimeWidget from "./AltDateTimeWidget";
 import BaseInput from "./BaseInput";
 import CheckboxWidget from "./CheckboxWidget";
 import CheckboxesWidget from "./CheckboxesWidget";
@@ -28,8 +26,6 @@ export default {
   TextWidget,
   DateWidget,
   DateTimeWidget,
-  AltDateWidget,
-  AltDateTimeWidget,
   EmailWidget,
   URLWidget,
   TextareaWidget,

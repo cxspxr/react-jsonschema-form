@@ -19,37 +19,6 @@ module.exports = {
           },
         },
       },
-      alternative: {
-        title: "Alternative",
-        description: "These work on most platforms.",
-        type: "object",
-        properties: {
-          "alt-datetime": {
-            type: "string",
-            format: "date-time",
-          },
-          "alt-date": {
-            type: "string",
-            format: "date",
-          },
-        },
-      },
-    },
-  },
-  uiSchema: {
-    alternative: {
-      "alt-datetime": {
-        "ui:widget": "alt-datetime",
-        "ui:options": {
-          yearsRange: [1980, 2030],
-        },
-      },
-      "alt-date": {
-        "ui:widget": "alt-date",
-        "ui:options": {
-          yearsRange: [1980, 2030],
-        },
-      },
     },
   },
   formData: {},

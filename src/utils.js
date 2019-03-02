@@ -27,8 +27,6 @@ const widgetMap = {
     date: "DateWidget",
     datetime: "DateTimeWidget",
     "date-time": "DateTimeWidget",
-    "alt-date": "AltDateWidget",
-    "alt-datetime": "AltDateTimeWidget",
     color: "ColorWidget",
     file: "FileWidget",
   },
