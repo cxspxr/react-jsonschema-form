@@ -277,7 +277,6 @@ function SchemaFieldRender(props) {
 
   const { __errors, ...fieldErrorSchema } = errorSchema;
 
-  // See #439: uiSchema: Don't pass consumed class names to child components
   const field = (
     <FieldComponent
       {...props}
@@ -297,10 +296,7 @@ function SchemaFieldRender(props) {
   const id = idSchema.$id;
   const label =
     uiSchema["ui:title"] || props.schema.title || schema.title || name;
-  const description =
-    uiSchema["ui:description"] ||
-    props.schema.description ||
-    schema.description;
+  const description = uiSchema["ui:description"];
   const errors = __errors;
   const help = uiSchema["ui:help"];
   const hidden = uiSchema["ui:widget"] === "hidden";

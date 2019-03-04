@@ -29,6 +29,7 @@ const widgetMap = {
     "date-time": "DateTimeWidget",
     color: "ColorWidget",
     file: "FileWidget",
+    "list-select": "ListSelect",
   },
   number: {
     text: "TextWidget",
